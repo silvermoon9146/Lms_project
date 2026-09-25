@@ -1,0 +1,7 @@
+Django_test
+.env
+venv/
+env/    
+.env
+**/__pycache__/
+.vscode/
