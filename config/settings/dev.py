@@ -1,17 +1,16 @@
-from pathlib import Path
-from decouple import config, Csv
+
 from .base import *
 
-DEBUG = config('DEBUG', cast=bool, default=True)
+DEBUG = config('D_DEBUG', cast=bool, default=True)
 ALLOWED_HOSTS += ["127.0.0.1", "localhost"]     
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('NAME'),
-        'USER': config('USER'),
-        'PASSWORD': config('PASSWORD'),
-        'HOST': config('HOST'),
-        'PORT': config('PORT', cast=int),
+        'NAME': config('D_NAME'),
+        'USER': config('D_USER'),
+        'PASSWORD': config('D_PASSWORD'),
+        'HOST': config('D_HOST'),
+        'PORT': config('D_PORT', cast=int),
     }
 }
