@@ -8,24 +8,57 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('accounts', '0001_initial'),
+        ("accounts", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Article',
+            name="Article",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='تاریخ ایجاد')),
-                ('updated_at', models.DateTimeField(auto_now=True, verbose_name='تاریخ بروزرسانی')),
-                ('is_active', models.BooleanField(default=True, verbose_name='فعال')),
-                ('title', models.CharField(max_length=255, verbose_name='عنوان مقاله')),
-                ('content', models.TextField(verbose_name='محتوا')),
-                ('author', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL, verbose_name='نویسنده')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(
+                        auto_now_add=True, verbose_name="تاریخ ایجاد"
+                    ),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(
+                        auto_now=True, verbose_name="تاریخ بروزرسانی"
+                    ),
+                ),
+                (
+                    "is_active",
+                    models.BooleanField(default=True, verbose_name="فعال"),
+                ),
+                (
+                    "title",
+                    models.CharField(
+                        max_length=255, verbose_name="عنوان مقاله"
+                    ),
+                ),
+                ("content", models.TextField(verbose_name="محتوا")),
+                (
+                    "author",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                        verbose_name="نویسنده",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'مقاله',
-                'verbose_name_plural': 'مقالات',
+                "verbose_name": "مقاله",
+                "verbose_name_plural": "مقالات",
             },
         ),
     ]

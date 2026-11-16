@@ -15,25 +15,77 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Profile',
+            name="Profile",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('full_name', models.CharField(blank=True, max_length=300, null=True)),
-                ('role', models.CharField(choices=[('student', 'Student'), ('instructor', 'Instructor'), ('staff', 'Staff')], default='student', max_length=12)),
-                ('avatar', models.ImageField(blank=True, null=True, upload_to='profile-avatars/')),
-                ('location', models.CharField(blank=True, max_length=200, null=True)),
-                ('course_enrolled', models.PositiveIntegerField(default=0, editable=False)),
-                ('course_completed', models.PositiveIntegerField(default=0, editable=False)),
-                ('rating', models.DecimalField(blank=True, decimal_places=2, editable=False, max_digits=3, null=True)),
-                ('github_link', models.URLField(blank=True, null=True)),
-                ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('updated_at', models.DateTimeField(auto_now=True)),
-                ('user', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, related_name='profile', to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "full_name",
+                    models.CharField(blank=True, max_length=300, null=True),
+                ),
+                (
+                    "role",
+                    models.CharField(
+                        choices=[
+                            ("student", "Student"),
+                            ("instructor", "Instructor"),
+                            ("staff", "Staff"),
+                        ],
+                        default="student",
+                        max_length=12,
+                    ),
+                ),
+                (
+                    "avatar",
+                    models.ImageField(
+                        blank=True, null=True, upload_to="profile-avatars/"
+                    ),
+                ),
+                (
+                    "location",
+                    models.CharField(blank=True, max_length=200, null=True),
+                ),
+                (
+                    "course_enrolled",
+                    models.PositiveIntegerField(default=0, editable=False),
+                ),
+                (
+                    "course_completed",
+                    models.PositiveIntegerField(default=0, editable=False),
+                ),
+                (
+                    "rating",
+                    models.DecimalField(
+                        blank=True,
+                        decimal_places=2,
+                        editable=False,
+                        max_digits=3,
+                        null=True,
+                    ),
+                ),
+                ("github_link", models.URLField(blank=True, null=True)),
+                ("created_at", models.DateTimeField(auto_now_add=True)),
+                ("updated_at", models.DateTimeField(auto_now=True)),
+                (
+                    "user",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="profile",
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'پروفایل',
-                'verbose_name_plural': 'پروفایل ها',
-                'ordering': ('created_at',),
+                "verbose_name": "پروفایل",
+                "verbose_name_plural": "پروفایل ها",
+                "ordering": ("created_at",),
             },
         ),
     ]
