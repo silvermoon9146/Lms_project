@@ -49,7 +49,7 @@ class RequestPasswordResetView(generics.GenericAPIView):
         try:
             user = User.objects.get(phone=phone)
         except User.DoesNotExist:
-            return Response({'detail':'کاربری با این شماره یافت نشد'})
+            return Response({'detail':'کاربری با این شماره یافت نشد'}, status=404)
 
         otp_instance, created = PasswordResetOTP.objects.get_or_create(phone=phone, is_used=False)
         otp_code = otp_instance.generate_otp()
@@ -82,5 +82,7 @@ class VerifyOTPAndResetPasswordView(generics.GenericAPIView):
         user = User.objects.get(phone=phone)
         user.set_password(new_password)
         user.save()
+        otp_instance.is_used = True
+        otp_instance.save()
 
         return Response({'detail':'رمز عبور با موفقیت تغییر کرد'}, status=200)
