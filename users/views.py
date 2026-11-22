@@ -24,7 +24,7 @@ from .models import *
 from .serializers import *
 from auditlog.models import LogEntry
 from rest_framework import viewsets
-from permissions import *
+from .permissions import *
 
 
 
