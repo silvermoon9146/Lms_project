@@ -12,6 +12,4 @@ urlpatterns = [
     path("my-enrollments/", UserEnrolledCourseView.as_view(), name="my-enrollments"),
     path("recommended/", RecommendedCourseView.as_view(), name="recommended-courses"),
     path('', include(router.urls))
-
-
 ]
