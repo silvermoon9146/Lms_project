@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     "accounts",
     "users",
     "course",
+    "lessons",
     "drf_spectacular",
     "nplusone.ext.django",
     "django_extensions",
