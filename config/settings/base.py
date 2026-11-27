@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     "users",
     "course",
     "lessons",
+    "notification",
     "drf_spectacular",
     "nplusone.ext.django",
     "django_extensions",
